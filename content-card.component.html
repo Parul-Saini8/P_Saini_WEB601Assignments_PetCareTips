@@ -1,5 +1,9 @@
 <!-- content-card.component.html -->
-<div *ngFor="let content of contentList.getContents()">
-    <div [innerHTML]="contentList.getContentHTML(content.id - 1)"></div>
-  </div>
-  
+<div class="content-card" [style.border]="content.id === 1 ? '2px solid black' : '1px solid black'">
+  <h2>{{ content.title }}</h2>
+  <img *ngIf="content.imgURL" [src]="content.imgURL" alt="{{ content.title }}" (click)="displayContentInfo()">
+  <p *ngIf="content.description">{{ content.description }}</p>
+  <p *ngIf="content.creator">Creator: {{ content.creator }}</p>
+  <p *ngIf="content.type">Type: {{ content.type }}</p>
+  <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
+</div>
