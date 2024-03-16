@@ -1,0 +1,5 @@
+<!-- content-card.component.html -->
+<div *ngFor="let content of contentList.getContents()">
+    <div [innerHTML]="contentList.getContentHTML(content.id - 1)"></div>
+  </div>
+  
